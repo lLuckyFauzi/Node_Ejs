@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+
+<body class=" bg-blue-500 flex justify-center items-center min-w-screen">
+
+    <div class=" min-h-screen min-w-screen text-white my-[40px]">
+        <h1 class="text-center font-bold text-4xl">Todolist</h1>
+        <div class="py-[20px]">
+            <form action="/" method="post" class="text-center">
+                <input type="text" name="addtodo" placeholder="Add Your Todo"
+                    class="my-[30px] outline-none rounded-md p-[5px] text-black">
+                <button
+                    class="bg-green-400 p-[6px] rounded-md font-semibold hover:bg-blue-500 hover:border-[1px] hover:border-white duration-200">Add
+                    Todo</button>
+            </form>
+        </div>
+
+        <div class="mt-[40px]">
+            <% if(todos.length===0) { %>
+                <h1 class="text-center font-bold text-3xl">No Todos</h1>
+                <% } else { %>
+                    <h1 class="text-center font-bold text-3xl">Todos</h1>
+                    <% } %>
+                        <div class="flex justify-center items-center flex-wrap mt-[10px]">
+                            <% todos.forEach(todo=> { %>
+                                <div class="bg-white text-black rounded-md p-[10px] m-[10px] flex">
+                                    <div>
+                                        <div class="flex items-center">
+                                            <input type="checkbox">
+                                            <p class="ml-[10px] text-sm text-gray-500">Todo:</p>
+                                        </div>
+                                        <p class="ml-[25px]">
+                                            <%= todo.addtodo %>
+                                        </p>
+                                        <div>
+                                            <p class="ml-[25px] text-sm text-gray-500">
+                                                Date:
+                                                <%=mount %>/<%=year %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% }) %>
+                        </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
