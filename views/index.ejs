@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <title>Document</title>
+</head>
+
+<body class="bg-blue-500 text-white">
+    <div class="px-[100px] py-[20px]">
+        <div class="text-center font-bold text-4xl">
+            <p>Daftar Mahasiswa</p>
+        </div>
+        <% if (data.length===0) { %>
+            <div class="text-center flex justify-center items-center min-h-screen">
+                <p class="font-bold text-2xl font-medium">Tidak ada siswa</p>
+            </div>
+            <% } else { %>
+                <div class="text-center mt-[100px]">
+                    <p class="font-bold text-[20px] font-medium">Daftar Siswa</p>
+                </div>
+                <div class="my-[20px]">
+                    <hr class="bg-white">
+                </div>
+                <div class="flex justify-center flex-wrap">
+                    <%data.forEach(data=> { %>
+                        <a href="/update-siswa/<%=data.id %>">
+                            <div class="hover:scale-105 duration-200 bg-white text-black rounded-md p-[15px] m-[10px] ">
+                                <p class="text-center text-[25px] font-semibold">Siswa</p>
+                                <div class="py-[20px]">
+                                    <hr class="bg-gray-500">
+                                </div>
+                                <div class="flex justify-center items-center">
+                                    <div
+                                        class="w-[100px] h-[100px] bg-gray-500 rounded-full flex justify-center items-center">
+                                        <p class="text-white">Foto</p>
+                                    </div>
+                                    <div class="ml-[20px]">
+                                        <p class="font-light">Nama: </p>
+                                        <p class="text-[22px] font-semibold">
+                                            <%=data.nama %>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <% }) %>
+                            <% } %>
+                </div>
+                <a href="/submit-siswa">
+                    <button
+                        class="text-3xl bg-white w-[80px] h-[80px] rounded-full flex justify-center items-center fixed z-[99] bottom-[50px] right-[50px] hover:scale-105 duration-200 hover:translate-x-[-10px] hover:translate-y-[-10px] hover:shadow-lg">
+                        <ion-icon class=" text-4xl text-blue-500 font-bold" name="add-outline"></ion-icon>
+                    </button>
+                </a>
+    </div>
+
+
+</body>
+
+</html>

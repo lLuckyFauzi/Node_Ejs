@@ -17,7 +17,7 @@ module.exports = {
       console.log("Tidak boleh kosong");
     } else {
       todo.push(req.body);
-      res.redirect("/");
+      res.redirect("/home");
     }
   },
 };
